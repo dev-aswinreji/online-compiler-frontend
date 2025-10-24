@@ -4,11 +4,19 @@ import axios from 'axios';
 import Terminal from './components/Terminal/terminal';
 import Preview from './components/Preview/preview';
 import EditorMonaco from './components/Editor/editor';
+import initialTree from './components/TreeFileStructure/tree';
+import FileTree from './components/TreeFileStructure/fileTree';
 
 function App() {
   const [code, setCode] = useState("console.log('Hello World');");
   const [output, setOutput] = useState('');
   const [language, setLanguage] = useState('javascript')
+
+  const [tree, setTree] = useState(initialTree)
+
+  const handleSelectFile = (file) => {
+    setCode(file.content || '')
+  }
 
   const runCode = async () => {
     try {
@@ -37,6 +45,9 @@ function App() {
         </button>
       </div>
       <div className="flex space-x-4">
+        <div className="w-1/15 border-r p-2 overflow-y-auto">
+          <FileTree tree={tree} onSelectFile={handleSelectFile} />
+        </div>
         <div className="w-2/3 h-96">
           <EditorMonaco code={code} setCode={setCode} language={language} />
         </div>

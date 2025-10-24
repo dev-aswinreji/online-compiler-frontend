@@ -13,3 +13,5 @@ const initialTree = [
         content: "# Project"
     }
 ];
+
+export default initialTree
