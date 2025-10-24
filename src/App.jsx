@@ -6,6 +6,7 @@ import Preview from './components/Preview/preview';
 import EditorMonaco from './components/Editor/editor';
 import initialTree from './components/TreeFileStructure/tree';
 import FileTree from './components/TreeFileStructure/fileTree';
+import { InitialFileSystem } from './components/TreeFileStructure/initialFileSystem';
 
 function App() {
   const [code, setCode] = useState("console.log('Hello World');");
@@ -13,6 +14,7 @@ function App() {
   const [language, setLanguage] = useState('javascript')
 
   const [tree, setTree] = useState(initialTree)
+  const [activeFile, setActiveFile] = useState(null)
 
   const handleSelectFile = (file) => {
     setCode(file.content || '')
@@ -44,9 +46,25 @@ function App() {
           Run
         </button>
       </div>
-      <div className="flex space-x-4">
-        <div className="w-1/15 border-r p-2 overflow-y-auto">
-          <FileTree tree={tree} onSelectFile={handleSelectFile} />
+      <div className="flex h-screen">
+        <div className="w-1/4 bg-gray-100 p-4 overflow-auto">
+          <FileTree tree={InitialFileSystem.children}
+            onSelectFile={(file) => setActiveFile(file)}
+            activeFile={activeFile}
+          />
+        </div>
+        <div className="flex-1 p-4">
+          {activeFile ? (
+            <textarea name="" id=""
+              className='w-full h-full border p-2'
+              value={activeFile.content}
+              onChange={(e) => (activeFile.content = e.target.value)}
+            ></textarea>
+          ) :
+            (
+              <p>Select a file to view/edit</p>
+            )
+          }
         </div>
         <div className="w-2/3 h-96">
           <EditorMonaco code={code} setCode={setCode} language={language} />

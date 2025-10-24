@@ -32,14 +32,14 @@ const FileTree = ({ tree, onSelectFile, activeFile }) => {
         )
     }
 
-    const FileNode = ({ node }) => {
+    const FileNode = ({ node }) => (
         <div className={`cursor-pointer rounded p-1 ${activeFile?.name === node.name ? "bg-blue-300" : "hover:bg-gray-200"
             }`}
-            onClick={onSelectFile(node)}
+            onClick={() => onSelectFile(node)}
         >
             📄 {node.name}
         </div>
-    }
+    )
 
     return (
         <div>
