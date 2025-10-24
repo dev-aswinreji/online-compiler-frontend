@@ -1,5 +1,5 @@
 import MonacoEditor from '@monaco-editor/react';
-const Editor = ({ code, setCode, language }) => {
+const EditorMonaco = ({ code, setCode, language }) => {
 
   return (
     <div className="h-full w-full">
@@ -19,4 +19,4 @@ const Editor = ({ code, setCode, language }) => {
   )
 }
 
-export default Editor
+export default EditorMonaco
