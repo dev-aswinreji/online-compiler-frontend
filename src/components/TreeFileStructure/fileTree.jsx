@@ -1,6 +1,9 @@
+import { useState } from "react";
 
-const FileTree = ({ tree, onSelectFile }) => {
+const FileTree = ({ tree, onSelectFile , activeFile}) => {
+    const [isOpen, setIsOpen] = useState(true);
     const renderTree = (nodes) =>
+
         nodes.map((node) => (
             <div key={node.name} className="ml-2">
                 {node.type === 'folder' ? (
