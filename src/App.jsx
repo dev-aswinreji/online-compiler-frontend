@@ -49,23 +49,29 @@ function App() {
       <div className="flex h-screen">
         <div className="w-1/4 bg-gray-100 p-4 overflow-auto">
           <FileTree tree={InitialFileSystem.children}
-            onSelectFile={(file) => setActiveFile(file)}
+            onSelectFile={(file) => {
+              setActiveFile(file)
+              setCode(file.content || "");
+              setLanguage(file.name.endsWith(".js") ? "javascript" : "python");
+            }}
             activeFile={activeFile}
           />
         </div>
         <div className="flex-1 p-4">
           {activeFile ? (
-            <textarea name="" id=""
-              className='w-full h-full border p-2'
-              value={activeFile.content}
-              onChange={(e) => (activeFile.content = e.target.value)}
-            ></textarea>
-          ) :
-            (
-              <p>Select a file to view/edit</p>
-            )
-          }
+            <EditorMonaco
+              code={code}
+              setCode={(value) => {
+                setCode(value);
+                activeFile.content = value; // persist to file tree
+              }}
+              language={language}
+            />
+          ) : (
+            <p>Select a file to view/edit</p>
+          )}
         </div>
+
         <div className="w-2/3 h-96">
           <EditorMonaco code={code} setCode={setCode} language={language} />
         </div>
