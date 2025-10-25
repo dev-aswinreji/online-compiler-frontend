@@ -5,7 +5,7 @@ const EditorMonaco = ({ code, setCode, language }) => {
     <div className="h-full w-full">
       <MonacoEditor
         width="100%"
-        height="100%"
+        height="50rem"
         language={language}
         theme='vs-dark'
         value={code}
