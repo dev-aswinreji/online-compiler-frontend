@@ -23,7 +23,7 @@ function App() {
   const runCode = async () => {
     try {
 
-      const res = await axios.post(`http://localhost:3001/api/execute`, {
+      const res = await axios.post(`${import.meta.env.VITE_URL}/api/execute`, {
         code,
         language
       });
