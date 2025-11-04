@@ -18,7 +18,11 @@ const EditorMonaco = ({ code, setCode, language }) => {
     });
     monacoEditor.current = editor;
 
-    const vim = initVimMode(editor, vimStatusRef.current || undefined);
+    import("monaco-vim").then(({ initVimMode }) => {
+
+      const vim = initVimMode(editor, vimStatusRef.current || undefined);
+      console.log('Vim mode loaded',vim);
+    })
 
     const subscription = editor.onDidChangeModelContent(() => {
       setCode(editor.getValue())
