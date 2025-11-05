@@ -13,10 +13,10 @@
     "@monaco-editor/react": "^4.7.0",
     "@tailwindcss/vite": "^4.1.16",
     "axios": "^1.12.2",
-    "monaco-vim": "^0.4.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.16"
+    "tailwindcss": "^4.1.16",
+    "vim-monaco": "^1.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

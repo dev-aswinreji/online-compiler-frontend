@@ -1484,11 +1484,6 @@ minimatch@^3.1.2:
   dependencies:
     brace-expansion "^1.1.7"
 
-monaco-vim@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/monaco-vim/-/monaco-vim-0.4.2.tgz#b56a6bbe2332c987391b3d04000134e0c645da19"
-  integrity sha512-rdbQC3O2rmpwX2Orzig/6gZjZfH7q7TIeB+uEl49sa+QyNm3jCKJOw5mwxBdFzTqbrPD+URfg6A2lEkuL5kymw==
-
 ms@^2.1.3:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
@@ -1727,6 +1722,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+vim-monaco@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vim-monaco/-/vim-monaco-1.0.6.tgz#ab67a9cf76739b52ccfb588d9401da391cbef384"
+  integrity sha512-VIrAcXhGBDYvXIh37OUigMxIJJUZhkzNrDsC+vt1Wq6KounOhnI5bKgZ/9BouU88apchY806uYLBmRdk04r6hg==
 
 vite@^7.1.7:
   version "7.1.12"
